@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 import ImagePicker from 'react-native-image-crop-picker'
-import api_call from '../App'
+import api_posts from '../calls'
 
 const Create = (props) => {
 
@@ -11,8 +11,7 @@ const Create = (props) => {
     const [newImage, setImage] = useState()                                        
     
     const createPost = () => {
-        console.log("...creating post with json!")
-        fetch(api_call(`post/`), {
+        fetch(api_posts, {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

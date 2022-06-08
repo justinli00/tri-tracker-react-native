@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, View, Button, FlatList, Alert } from 'react-native'; //flatlists -- a way to interpret JSON data
 import { Card, FAB } from 'react-native-paper'
-import api_call from '../App'
+import api_posts from '../calls'
 
 //FAB: "Floating action button"
 
@@ -12,8 +12,7 @@ export default function Home(props) {
 
     const loadData = () => {
         //fetch the data
-        console.log(api_call(`post/`)) 
-        fetch(api_call(`post/`), { 
+        fetch(global.api_posts, { 
             method:"GET"
         })
 

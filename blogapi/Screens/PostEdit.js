@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
-import api_call from '../App'
+import api_posts from '../calls'
 
 export default function PostEdit(props) {
 
@@ -11,7 +11,7 @@ export default function PostEdit(props) {
     const [contents, setContents] = useState(data.content)
 
     const updateData = () => {
-        fetch(api_call(`post/${data.id}/`), {
+        fetch(api_posts + `post/${data.id}/`, {
             method: "PUT",
             headers: {
                 'Content-Type':'application/json'

@@ -12,10 +12,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator()
 
-//concatenates call to existing api url -- for faster iteration/switching
-//NOTE: be very careful with what string that call is appended to is 
-function api_call (call) { return "http://192.168.254.102:8000/api/".concat(call) }
-
 const myStyles = {
     title: "Image List",
     headerTintColor:"white",

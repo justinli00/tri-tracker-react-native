@@ -1,13 +1,13 @@
 import { StyleSheet, View, Text, Image, ScrollView, Alert } from 'react-native'
 import { Button } from 'react-native-paper'
 import React from 'react'
-import api_call from '../App'
+import api_posts from '../calls'
 
 export default function PostDetails(props) {
 
     const data = props.route.params.data
     const deleteData = (data) => {
-        fetch(api_call(`post/${data.id}/`), {
+        fetch(api_posts + `${data.id}/`, {
             method: "DELETE",
             headers: {
                 'Content-Type':'application/json'
