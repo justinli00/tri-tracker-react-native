@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, Text, View, Button, FlatList, Alert } from 'react-native'; //flatlists -- a way to interpret JSON data
+import { StyleSheet, Text, View, Button, FlatList, Platform } from 'react-native'; //flatlists -- a way to interpret JSON data
 import { Card, FAB } from 'react-native-paper'
 import api_posts from '../calls'
+import { useRoute } from '@react-navigation/native';
 
 //FAB: "Floating action button"
 
@@ -11,19 +12,19 @@ export default function Home(props) {
     const [loading, setLoading] = useState(true)
 
     const loadData = () => {
+
         //fetch the data
-        console.log("attempting to fetch data from:", global.api_posts)
         fetch(global.api_posts, { 
             method:"GET"
         })
 
         .then(resp => resp.json())
         .then(data => {
-            //console.log(data)
+            alert("data loaded!");
             setData(data)
             setLoading(false)
         })
-        .catch(error => Alert.alert("Error:", error.message))
+        .catch(error => alert(error.message))
     }
 
     const clickedPost = (data) => {
@@ -46,6 +47,7 @@ export default function Home(props) {
     }
     
 
+    const route = useRoute();
     //todo -- automatic data refresh on navigating back
     return (
         <View>
@@ -62,7 +64,6 @@ export default function Home(props) {
                 style = {styles.addButton}
                 small = {false}
                 icon = "plus"
-
                 onPress = {() => props.navigation.navigate("Create")}
             />
             <FAB
