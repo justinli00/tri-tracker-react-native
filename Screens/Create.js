@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
-import ImagePicker from 'react-native-image-crop-picker'
 import api_posts from '../calls'
 
 const Create = (props) => {
@@ -35,18 +34,6 @@ const Create = (props) => {
     const choosePhotoFromLibrary = () => {
         // No permissions request is necessary for launching the image library
         console.log("...choosing photo!")
-        ImagePicker.openPicker({
-            width: 300,
-            height: 400,
-            cropping: true,
-            includeBase64: true,
-          }).then(image => {
-            console.log("Image received!");
-            console.log(image);
-            setImage(image);
-            console.log("New image is:", newImage)
-          })
-          .catch(error => console.log(error))
     }
 
     const DisplayImage = () => {

@@ -13,7 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator()
 
 const myStyles = {
-    title: "Image List",
+    title: "Image List bababooey",
     headerTintColor:"white",
     headerStyle: {
       backgroundColor:"blue"

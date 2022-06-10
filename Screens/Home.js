@@ -12,6 +12,7 @@ export default function Home(props) {
 
     const loadData = () => {
         //fetch the data
+        console.log("attempting to fetch data from:", global.api_posts)
         fetch(global.api_posts, { 
             method:"GET"
         })
